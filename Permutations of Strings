@@ -4,11 +4,7 @@
 
 int next_permutation(int n, char **s)
 {
-	/**
-	* Complete this method
-	* Return 0 when there is no next permutation and 1 otherwise
-	* Modify array s to its next permutation
-	*/
+
     
     int i = n - 2;
 
