@@ -1,0 +1,17 @@
+# Complete the solve function below.
+def solve(s):
+    result = ""
+    capitalize = True   # next valid char should be capital
+
+    for ch in s:
+        if ch == " ":
+            result += ch
+            capitalize = True
+        else:
+            if capitalize and ch.isalpha():
+                result += ch.upper()
+            else:
+                result += ch
+            capitalize = False
+
+    return result
