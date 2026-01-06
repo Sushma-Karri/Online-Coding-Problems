@@ -1,0 +1,37 @@
+def can_tomu_win(n, k, arr):
+    motu = []
+    tomu = []
+
+    # Separate values by index
+    for i in range(n):
+        if i % 2 == 0:
+            motu.append(arr[i])
+        else:
+            tomu.append(arr[i])
+
+    motu_score = sum(motu)
+    tomu_score = sum(tomu)
+
+    # Sort for best swaps
+    motu.sort(reverse=True)   # big values first
+    tomu.sort()               # small values first
+
+    swaps = min(k, len(motu), len(tomu))
+
+    for i in range(swaps):
+        if motu[i] > tomu[i]:
+            diff = motu[i] - tomu[i]
+            motu_score -= diff
+            tomu_score += diff
+        else:
+            break
+
+    return "YES" if tomu_score > motu_score else "NO"
+
+
+# Input handling
+t = int(input())
+for _ in range(t):
+    n, k = map(int, input().split())
+    arr = list(map(int, input().split()))
+    print(can_tomu_win(n, k, arr))
